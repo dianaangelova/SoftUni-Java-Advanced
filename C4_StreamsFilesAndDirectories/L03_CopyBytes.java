@@ -18,7 +18,7 @@ public class L03_CopyBytes {
                 byte oneByte = (byte) read;
                 String digits = String.valueOf(oneByte);
                 if (digits.equals("32")||digits.equals("10")){
-                    fileOutputStream.write(Integer.parseInt(Integer.toString(Integer.parseInt(digits))));
+                    fileOutputStream.write(Integer.parseInt(digits));
                 } else{
                     for (int i = 0; i < digits.length(); i++) {
                         fileOutputStream.write(digits.charAt(i));
