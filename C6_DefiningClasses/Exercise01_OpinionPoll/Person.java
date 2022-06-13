@@ -22,5 +22,3 @@ public class Person {
         return this.name + " - " + this.age;
     }
 }
-
-// test edit
