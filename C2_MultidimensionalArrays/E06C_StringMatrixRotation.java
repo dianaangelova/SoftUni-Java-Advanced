@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class E06C_StringMatrixRotation {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+// NOT COMPLETED
         List<String> input = new ArrayList<>();
         String word = scanner.nextLine();
         int maxCharsWord = 0;
