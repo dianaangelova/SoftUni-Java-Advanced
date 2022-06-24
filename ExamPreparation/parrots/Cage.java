@@ -23,7 +23,7 @@ public class Cage {
     }
 
     public void add(Parrot parrot) {
-        if (capacity < data.size()) {
+        if (capacity > data.size()) {
             data.add(parrot);
         }
     }
