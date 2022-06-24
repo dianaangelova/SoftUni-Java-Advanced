@@ -29,7 +29,19 @@ public class Cage {
     }
 
     public boolean remove(String name) {
-        return data.removeIf(parrot -> parrot.getName().equals(name));
+        boolean parrotExists = false;
+        Parrot parrot = null;
+        for (Parrot p : data) {
+            if (p.getName().equals(name)) {
+                parrot = p;
+                parrotExists = true;
+            }
+        }
+        if (parrotExists) {
+            data.remove(parrot);
+        }
+
+        return parrotExists;
     }
 
     public Parrot sellParrot(String name) {
@@ -61,12 +73,15 @@ public class Cage {
 
 
     public String report() {
+
         List<String> outputList = new ArrayList<>();
         String outputMessage;
+        outputMessage = "Parrots available at " + this.name + ":";
+        outputList.add(outputMessage);
+
         for (Parrot p : data) {
             if (p.isAvailable()) {
-                outputMessage = "Parrots available at " + this.name + ":";
-                outputList.add(outputMessage);
+                outputList.add(p.toString());
             }
         }
         return (String.join(System.lineSeparator(), outputList));
