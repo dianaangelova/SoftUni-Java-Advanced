@@ -2,7 +2,7 @@ package ExamPreparation;
 
 import java.util.Scanner;
 
-public class Exam02_PawnWars {
+public class Exam02_PawnWars_70 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -30,67 +30,66 @@ public class Exam02_PawnWars {
         String winner = "";
         int rowWin = -1;
         int colWin = -1;
-        boolean isWhiteTurn = true;
         boolean promoted = false;
         boolean captured = false;
 
         while ((rowW != 0 && rowB != 7) && (!captured) && (!promoted)) {
 
-                if (matrix[rowW - 1][colW - 1] == 'b') {
-                    matrix[rowW - 1][colW - 1] = 'w';
-                    rowWin = rowW - 1;
-                    colWin = colW - 1;
-                    winner = "White";
-                    captured = true;
-                    break;
-                } else if (matrix[rowW - 1][colW + 1] == 'b') {
-                    matrix[rowW - 1][colW + 1] = 'w';
-                    rowWin = rowW - 1;
-                    colWin = colW + 1;
-                    winner = "White";
-                    captured = true;
-                    break;
-                } else {
-                    matrix[rowW][colW] = '-';
-                    matrix[rowW - 1][colW] = 'w';
-                    rowW = rowW - 1;
-                }
+            if (matrix[rowW - 1][colW - 1] == 'b') {
+                matrix[rowW - 1][colW - 1] = 'w';
+                rowWin = rowW - 1;
+                colWin = colW - 1;
+                winner = "White";
+                captured = true;
+                break;
+            } else if (matrix[rowW - 1][colW + 1] == 'b') {
+                matrix[rowW - 1][colW + 1] = 'w';
+                rowWin = rowW - 1;
+                colWin = colW + 1;
+                winner = "White";
+                captured = true;
+                break;
+            } else {
+                matrix[rowW][colW] = '-';
+                matrix[rowW - 1][colW] = 'w';
+                rowW = rowW - 1;
+            }
 
-                if (rowW == 0) {
-                    winner = "White";
-                    rowWin = 0;
-                    colWin = colW;
-                    promoted = true;
-                    break;
-                }
+            if (rowW == 0) {
+                winner = "White";
+                rowWin = 0;
+                colWin = colW;
+                promoted = true;
+                break;
+            }
 
-                if (matrix[rowB + 1][colB - 1] == 'w') {
-                    matrix[rowB + 1][colB - 1] = 'b';
-                    winner = "Black";
-                    rowWin = rowB + 1;
-                    colWin = colB - 1;
-                    captured = true;
-                    break;
-                } else if (matrix[rowB + 1][colB + 1] == 'w') {
-                    matrix[rowB + 1][colB + 1] = 'b';
-                    winner = "Black";
-                    rowWin = rowB + 1;
-                    colWin = colB + 1;
-                    captured = true;
-                    break;
-                } else {
-                    matrix[rowB][colB] = '-';
-                    matrix[rowB + 1][colB] = 'b';
-                    rowB = rowB + 1;
-                }
+            if (matrix[rowB + 1][colB - 1] == 'w') {
+                matrix[rowB + 1][colB - 1] = 'b';
+                winner = "Black";
+                rowWin = rowB + 1;
+                colWin = colB - 1;
+                captured = true;
+                break;
+            } else if (matrix[rowB + 1][colB + 1] == 'w') {
+                matrix[rowB + 1][colB + 1] = 'b';
+                winner = "Black";
+                rowWin = rowB + 1;
+                colWin = colB + 1;
+                captured = true;
+                break;
+            } else {
+                matrix[rowB][colB] = '-';
+                matrix[rowB + 1][colB] = 'b';
+                rowB = rowB + 1;
+            }
 
-                if (rowB == 7) {
-                    winner = "Black";
-                    promoted = true;
-                    rowWin = 7;
-                    colWin = colB;
-                    break;
-                }
+            if (rowB == 7) {
+                winner = "Black";
+                promoted = true;
+                rowWin = 7;
+                colWin = colB;
+                break;
+            }
         }
 
         String[][] matrixChess = new String[8][8];
@@ -111,18 +110,10 @@ public class Exam02_PawnWars {
         }
 
         if (promoted == true) {
-            if (winner.equals("White")) {
-                System.out.println("Game over! White pawn is promoted to a queen at " + valueWin + ".");
-            } else {
-                System.out.println("Game over! Black pawn is promoted to a queen at " + valueWin + ".");
-            }
-
+            System.out.println("Game over! " + winner + " pawn is promoted to a queen at " + valueWin + ".");
         } else {
-            if (winner.equals("White")) {
-                System.out.println("Game over! White capture on " + valueWin + ".");
-            } else {
-                System.out.println("Game over! Black capture on " + valueWin + ".");
-            }
+            System.out.println("Game over! " + winner + " capture on " + valueWin + ".");
         }
     }
 }
+
